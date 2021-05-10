@@ -11,7 +11,7 @@
     "SpaceWithinMethodCallParentheses": false,
     "SpaceBetweenEmptyMethodCallParentheses": false,
     "SpaceAfterControlFlowStatementKeyword": true,
-    "SpaceWithinExpressionParentheses": false, 
+    "SpaceWithinExpressionParentheses": false,
     "SpaceWithinCastParentheses": false,
     "SpaceWithinOtherParentheses": false,
     "SpaceAfterCast": true,

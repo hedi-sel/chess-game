@@ -1,9 +1,8 @@
 using System;
 
-public class Program
-{
-    public static void Main()
-    {
-        Console.WriteLine("Hello");
+public class Program {
+
+    public static void Main () {
+        new Board();
     }
 }
