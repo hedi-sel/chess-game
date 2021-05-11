@@ -9,14 +9,14 @@ public static class Geometry {
     }
 
     public static bool IsDiagonal (this Vector2 vector) {
-        return Math.Abs(vector.X) == Math.Abs(vector.Y);
+        return Math.Abs(vector.X) == Math.Abs(vector.Y) && vector != Vector2.Zero;
     }
 
     public static bool IsStraight (this Vector2 vector) {
-        return vector.X == 0 || vector.Y == 0;
+        return (vector.X == 0 || vector.Y == 0) && vector != Vector2.Zero;
     }
 
-    public static float MaxDistance (this Vector2 vector) {
+    public static float MaxNorm (this Vector2 vector) {
         return Math.Max(Math.Abs(vector.X), Math.Abs(vector.Y));
     }
 }

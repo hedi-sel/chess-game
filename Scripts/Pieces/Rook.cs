@@ -10,6 +10,6 @@ public class Rook : Piece {
     }
 
     public override string ToString () {
-        return "R";
+        return (Color == Color.Black) ? "\u265C" : "\u2656";
     }
 }

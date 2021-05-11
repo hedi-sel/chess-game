@@ -10,6 +10,6 @@ public class Bishop : Piece {
     }
 
     public override string ToString () {
-        return "B";
+        return (Color == Color.Black) ? "\u265D" : "\u2657";
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Text;
 
 public class Program {
 
@@ -25,6 +26,8 @@ public class Program {
     };
 
     public static void Main () {
+        ConsoleHelper.SetCurrentFont("Consolas", 14);
+
         Dictionary<Vector2, Type> WhiteLayout = BlackLayout.Keys.ToDictionary(_ => _, _ => BlackLayout[_]);
         WhiteLayout[new Vector2(3, 0)] = typeof(Queen);
         WhiteLayout[new Vector2(4, 0)] = typeof(King);
@@ -32,11 +35,19 @@ public class Program {
         Board Board = new Board(BlackLayout, WhiteLayout);
         Board.Print();
 
-        Board.TryMovePiece(new Vector2(2, 0), new Vector2(5, 3));
+        Console.Clear();
+        Board.TryMovePiece(new Vector2(2, 0), new Vector2(5, 3)); // Illegal move
+        Board.Print();
+        Console.Read();
 
-        Board.TryMovePiece(new Vector2(3, 1), new Vector2(3, 2));
+        Console.Clear();
+        Board.TryMovePiece(new Vector2(3, 1), new Vector2(3, 3)); //Move Pawn
         Board.Print();
-        Board.TryMovePiece(new Vector2(2, 0), new Vector2(5, 3));
+        Console.Read();
+
+        Console.Clear();
+        Board.TryMovePiece(new Vector2(2, 0), new Vector2(5, 3)); //Move Bishop
         Board.Print();
+        Console.Read();
     }
 }

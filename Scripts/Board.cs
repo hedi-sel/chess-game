@@ -10,7 +10,7 @@ public enum Color {
 // Black is at the bottom, White is at the top
 
 public class Board {
-    public static Board Instance { get; private set; } // Keeping an instance instead of using a static class allows to manage several
+    public static Board Instance { get; private set; } // Keeping an instance instead of using a static class is to stay open for future upgrades
 
     public Board (Dictionary<Vector2, Type> blackLayout, Dictionary<Vector2, Type> whiteLayout) {
         foreach (var initPiece in blackLayout) {
@@ -47,14 +47,22 @@ public class Board {
         Data[(int) to.X, (int) to.Y] = movePiece;
         Data[(int) from.X, (int) from.Y] = null;
 
+        movePiece.HasMoved = true;
+
+        Console.WriteLine($"Moved {movePiece.GetType()}");
         return true;
-        //TODO: memeorize the pieces that have been taken
     }
 
+    // public void ForceMovePiece (Vector2 from, Vector2 to) {
+    //     Data[(int) to.X, (int) to.Y] = Data[(int) from.X, (int) from.Y];
+    //     Data[(int) from.X, (int) from.Y] = null;
+    //     Data[(int) to.X, (int) to.Y].HasMoved = true;
+    // }
+
     public void Print () {
-        Console.WriteLine("# # # # # # # # # #");
+        Console.WriteLine("  # # # # # # # # # #");
         for (int j = 7 ; j >= 0 ; j--) {
-            Console.Write("# ");
+            Console.Write("  # ");
             for (int i = 0 ; i < 8 ; i++) {
                 Piece piece = Data[i, j];
                 if (piece == null)
@@ -64,7 +72,7 @@ public class Board {
             }
             Console.WriteLine("#");
         }
-        Console.WriteLine("# # # # # # # # # #");
+        Console.WriteLine("  # # # # # # # # # #");
     }
 
     Piece[,] Data = new Piece[8, 8];
